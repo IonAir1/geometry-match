@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=29 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 
@@ -75,6 +75,16 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_srroa"]
 gradient = SubResource("Gradient_wtx43")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2yxk"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_phlcm"]
+line_spacing = 2.0
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_iu5ur"]
+font_size = 72
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_ynysc")
@@ -154,7 +164,7 @@ max_value = 10.0
 value = 10.0
 show_percentage = false
 
-[node name="score" type="Label" parent="walls"]
+[node name="score2" type="Label" parent="walls"]
 offset_top = 1202.0
 offset_right = 148.0
 offset_bottom = 1291.0
@@ -169,3 +179,62 @@ position = Vector2(360, 640)
 scale = Vector2(720, 1280)
 mesh = SubResource("BoxMesh_y8do0")
 texture = SubResource("GradientTexture1D_srroa")
+
+[node name="scores" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 140.0
+
+[node name="score" type="Label" parent="scores"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -113.0
+offset_right = 177.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Score: 9999"
+label_settings = SubResource("LabelSettings_l2yxk")
+horizontal_alignment = 1
+
+[node name="leaderboard" type="Label" parent="scores"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -189.5
+offset_right = 189.5
+offset_bottom = 70.0
+grow_horizontal = 2
+text = "Leaderboards"
+label_settings = SubResource("LabelSettings_phlcm")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="scores"]
+anchors_preset = 0
+offset_top = 800.0
+offset_bottom = 800.0
+
+[node name="Label" type="Label" parent="scores/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -51.0
+offset_right = 72.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_iu5ur")

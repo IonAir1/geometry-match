@@ -8,6 +8,12 @@ var ball: PackedScene = preload("res://scenes/ball.tscn")
 
 
 func _ready():
+
+	if Global.score > Global.high_score:
+		Global.high_score = Global.score
+		Leaderboard._upload_score(Global.score)
+	
+	$scores.modulate.a = 1
 	$walls.position.y = 380
 	$fade.visible = true
 	$fade.modulate.a = 1
@@ -17,9 +23,15 @@ func _ready():
 	spawn()
 
 
+func _process(delta):
+	$scores/score.text = "Score: " + str(Global.score)
+	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
+
+
 func _input(event):
 	if event.is_pressed() and not started:
 		started = true
+		await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
 		while $balls.get_child_count() > 0:
 			await get_tree().create_timer(0.1).timeout
 		await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
@@ -37,6 +49,7 @@ func spawn():
 		b.shape = 'square'
 	elif shape == 2:
 		b.shape = 'triangle'
+	b.main_menu = true
 	if not started:
 		$balls.add_child(b)
 		await get_tree().create_timer(randf_range(min_time, max_time)).timeout

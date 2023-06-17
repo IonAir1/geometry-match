@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var shape: String
+var main_menu: bool = false
 
 func _ready():
 	if shape == 'circle':
@@ -22,5 +23,6 @@ func _ready():
 	angular_velocity = randf_range(-7, 7)
 
 func _process(delta):
-	if position.y > 1600:
-		queue_free()
+	if main_menu:
+		if position.y > 1400:
+			queue_free()
