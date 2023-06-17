@@ -1,0 +1,152 @@
+[gd_scene load_steps=23 format=3 uid="uid://domeqneveoqsk"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2egl"]
+size = Vector2(6932, 2300)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kejc"]
+
+[sub_resource type="Gradient" id="Gradient_r62ac"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3x6v6"]
+gradient = SubResource("Gradient_r62ac")
+
+[sub_resource type="Gradient" id="Gradient_k5qbm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.194349, 0.194349, 0.194349, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cbrq"]
+gradient = SubResource("Gradient_k5qbm")
+
+[sub_resource type="SphereMesh" id="SphereMesh_liwgg"]
+
+[sub_resource type="Gradient" id="Gradient_ft5md"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bqnhd"]
+gradient = SubResource("Gradient_ft5md")
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxncf"]
+
+[sub_resource type="Gradient" id="Gradient_0il80"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0h2e8"]
+gradient = SubResource("Gradient_0il80")
+
+[sub_resource type="PrismMesh" id="PrismMesh_37eds"]
+
+[sub_resource type="Gradient" id="Gradient_t8xus"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_26t07"]
+gradient = SubResource("Gradient_t8xus")
+
+[sub_resource type="Gradient" id="Gradient_ci4e2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_75eo0"]
+gradient = SubResource("Gradient_ci4e2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd3mb"]
+size = Vector2(5, 500)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tdcex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eqye"]
+bg_color = Color(0.980392, 0.372549, 0.247059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpjir"]
+line_spacing = 1.0
+font_size = 64
+
+[node name="main menu" type="Node2D"]
+script = ExtResource("1_ynysc")
+
+[node name="walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-3463, 500)
+shape = SubResource("RectangleShape2D_e2egl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(4186, 500)
+shape = SubResource("RectangleShape2D_e2egl")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="walls"]
+position = Vector2(360, 400)
+scale = Vector2(720, 2000)
+mesh = SubResource("BoxMesh_4kejc")
+texture = SubResource("GradientTexture1D_3x6v6")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="walls"]
+position = Vector2(360, 400)
+scale = Vector2(240, 2000)
+mesh = SubResource("BoxMesh_4kejc")
+texture = SubResource("GradientTexture1D_0cbrq")
+
+[node name="ball_mesh" type="MeshInstance2D" parent="walls"]
+position = Vector2(360, 1100)
+scale = Vector2(96.9827, 98.5469)
+mesh = SubResource("SphereMesh_liwgg")
+texture = SubResource("GradientTexture1D_bqnhd")
+
+[node name="square_mesh" type="MeshInstance2D" parent="walls"]
+position = Vector2(120, 1100)
+scale = Vector2(96.9827, 98.5469)
+mesh = SubResource("BoxMesh_oxncf")
+texture = SubResource("GradientTexture1D_0h2e8")
+
+[node name="triangle_mesh" type="MeshInstance2D" parent="walls"]
+position = Vector2(600, 1100)
+rotation = 3.14159
+scale = Vector2(96.9827, 98.5469)
+mesh = SubResource("PrismMesh_37eds")
+texture = SubResource("GradientTexture1D_26t07")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls"]
+position = Vector2(240, 1150)
+scale = Vector2(5, 300)
+mesh = SubResource("BoxMesh_4kejc")
+texture = SubResource("GradientTexture1D_75eo0")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls"]
+position = Vector2(480, 1150)
+scale = Vector2(5, 300)
+mesh = SubResource("BoxMesh_4kejc")
+texture = SubResource("GradientTexture1D_75eo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(240, 1250)
+shape = SubResource("RectangleShape2D_dd3mb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(480, 1250)
+shape = SubResource("RectangleShape2D_dd3mb")
+
+[node name="health" type="ProgressBar" parent="walls"]
+offset_left = 1.0
+offset_top = 1220.0
+offset_right = 721.0
+offset_bottom = 1280.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_tdcex")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8eqye")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="score" type="Label" parent="walls"]
+offset_top = 1202.0
+offset_right = 148.0
+offset_bottom = 1291.0
+text = "0"
+label_settings = SubResource("LabelSettings_vpjir")

@@ -1,13 +1,12 @@
 extends Node2D
 
 var ball: PackedScene = preload("res://scenes/ball.tscn")
-var new_pos: Vector2 = Vector2()
-var offset: Vector2 = Vector2()
-var status: String = 'none'
-var selected_ball
+var new_pos: Vector2
+var offset: Vector2
+var status: String
+var selected_ball: Object
 var min_time: int = 0.5
 var max_time: int = 1
-
 
 
 func _ready():
@@ -41,7 +40,13 @@ func spawn():
 	var b: Node2D = ball.instantiate()
 	b.position.x = randi_range(50, 675)
 	b.position.y = -60
-	b.shape = randi()%3
+	var shape: int = randi()%3
+	if shape == 0:
+		b.shape = 'circle'
+	elif shape == 1:
+		b.shape = 'square'
+	elif shape == 2:
+		b.shape = 'triangle'
 	add_child(b)
 	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
 	spawn()

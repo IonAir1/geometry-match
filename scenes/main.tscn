@@ -1,84 +1,91 @@
-[gd_scene load_steps=23 format=3 uid="uid://b88ff4d73mj82"]
+[gd_scene load_steps=25 format=3 uid="uid://b88ff4d73mj82"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_daswn"]
 [ext_resource type="Script" path="res://scripts/balls.gd" id="1_ie5fb"]
-[ext_resource type="Shader" path="res://main.gdshader" id="2_2a13u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm6fi"]
 size = Vector2(6932, 2068)
 
 [sub_resource type="BoxMesh" id="BoxMesh_epllf"]
 
-[sub_resource type="Gradient" id="Gradient_r62ac"]
+[sub_resource type="Gradient" id="Gradient_g32qd"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.12, 0.12, 0.12, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y5huk"]
-gradient = SubResource("Gradient_r62ac")
+gradient = SubResource("Gradient_g32qd")
 
-[sub_resource type="Gradient" id="Gradient_k5qbm"]
+[sub_resource type="Gradient" id="Gradient_l58mj"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.194349, 0.194349, 0.194349, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7yhwl"]
-gradient = SubResource("Gradient_k5qbm")
+gradient = SubResource("Gradient_l58mj")
 
 [sub_resource type="SphereMesh" id="SphereMesh_60cbx"]
 
-[sub_resource type="Gradient" id="Gradient_ft5md"]
+[sub_resource type="Gradient" id="Gradient_y7ryy"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ccxi8"]
-gradient = SubResource("Gradient_ft5md")
+gradient = SubResource("Gradient_y7ryy")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5t1wb"]
 
-[sub_resource type="Gradient" id="Gradient_0il80"]
+[sub_resource type="Gradient" id="Gradient_1uxtb"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.192157, 0.192157, 0.192157, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_c1a6e"]
-gradient = SubResource("Gradient_0il80")
+gradient = SubResource("Gradient_1uxtb")
 
 [sub_resource type="PrismMesh" id="PrismMesh_8dhhe"]
 
-[sub_resource type="Gradient" id="Gradient_t8xus"]
+[sub_resource type="Gradient" id="Gradient_2akq7"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.192157, 0.192157, 0.192157, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_338yh"]
-gradient = SubResource("Gradient_t8xus")
+gradient = SubResource("Gradient_2akq7")
 
-[sub_resource type="Gradient" id="Gradient_ci4e2"]
+[sub_resource type="Gradient" id="Gradient_76adx"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nm1ey"]
-gradient = SubResource("Gradient_ci4e2")
+gradient = SubResource("Gradient_76adx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk6yo"]
 size = Vector2(5, 500)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2m4b5"]
-shader = ExtResource("2_2a13u")
-shader_parameter/glow_strength = 2.5
-shader_parameter/lod = 0.0
-shader_parameter/view_size = Vector2(640, 360)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xngn"]
+size = Vector2(229, 39)
 
-[sub_resource type="QuadMesh" id="QuadMesh_3pxgi"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxu0m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37l4"]
+bg_color = Color(0.980392, 0.372549, 0.247059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_57hxi"]
+line_spacing = 1.0
+font_size = 64
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_daswn")
 
 [node name="walls" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
 position = Vector2(-3463, 628)
 shape = SubResource("RectangleShape2D_qm6fi")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
-position = Vector2(4190, 628)
+position = Vector2(4186, 628)
 shape = SubResource("RectangleShape2D_qm6fi")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="walls"]
@@ -136,9 +143,51 @@ shape = SubResource("RectangleShape2D_yk6yo")
 script = ExtResource("1_ie5fb")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2m4b5")
-position = Vector2(360, 640)
-scale = Vector2(720, 1280)
-mesh = SubResource("QuadMesh_3pxgi")
+[node name="square" type="Area2D" parent="."]
+position = Vector2(123, 1450)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_7xngn")
+
+[node name="circle" type="Area2D" parent="."]
+position = Vector2(364, 1450)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="circle"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_7xngn")
+
+[node name="triangle" type="Area2D" parent="."]
+position = Vector2(606, 1450)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_7xngn")
+
+[node name="health" type="ProgressBar" parent="."]
+offset_top = 1220.0
+offset_right = 720.0
+offset_bottom = 1280.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_kxu0m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q37l4")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="score" type="Label" parent="."]
+offset_top = 1202.0
+offset_right = 148.0
+offset_bottom = 1291.0
+text = "9999"
+label_settings = SubResource("LabelSettings_57hxi")
+
+[connection signal="body_entered" from="square" to="." method="_on_square_body_entered"]
+[connection signal="body_entered" from="circle" to="." method="_on_circle_body_entered"]
+[connection signal="body_entered" from="triangle" to="." method="_on_triangle_body_entered"]
+[connection signal="value_changed" from="health" to="." method="_on_health_value_changed"]
