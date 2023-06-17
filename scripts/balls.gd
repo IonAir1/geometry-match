@@ -10,7 +10,7 @@ var time_max: int = 1
 var heal_min: int = 10
 var heal_max: int = 15
 var heal_count: int
-var freeze_min: int = 18
+var freeze_min: int = 15
 var freeze_max: int = 30
 var freeze_count: int
 
@@ -49,10 +49,23 @@ func freeze():
 		freeze_spawn()
 		await get_tree().create_timer(0.03).timeout
 	await get_tree().create_timer(0.7).timeout
+	get_parent().get_node("freeze").visible = true
+	get_parent().get_node("freeze").modulate.a = 0.25
 	for ball in get_children():
 		ball.freeze = true
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(7.75).timeout
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
+
 	Global.freeze = false
+	get_parent().get_node("freeze").visible = false
 	for ball in get_children():
 		ball.freeze = false
 

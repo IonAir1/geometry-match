@@ -8,6 +8,7 @@ func _ready():
 	Global.freeze = false
 	Global.score = 0
 	Global.health = 10
+	$freeze.visible = false
 	$fade.visible = false
 
 

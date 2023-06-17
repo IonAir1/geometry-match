@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b88ff4d73mj82"]
+[gd_scene load_steps=31 format=3 uid="uid://b88ff4d73mj82"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_daswn"]
 [ext_resource type="Script" path="res://scripts/balls.gd" id="1_ie5fb"]
@@ -81,6 +81,13 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7cc7g"]
 gradient = SubResource("Gradient_2k5md")
+
+[sub_resource type="Gradient" id="Gradient_5pc76"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cuqsg"]
+gradient = SubResource("Gradient_5pc76")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_daswn")
@@ -361,6 +368,14 @@ position = Vector2(360, 640)
 scale = Vector2(720, 1280)
 mesh = SubResource("BoxMesh_q1356")
 texture = SubResource("GradientTexture1D_7cc7g")
+
+[node name="freeze" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(360, 640)
+scale = Vector2(720, 1280)
+mesh = SubResource("BoxMesh_q1356")
+texture = SubResource("GradientTexture1D_cuqsg")
 
 [connection signal="body_entered" from="square" to="." method="_on_square_body_entered"]
 [connection signal="body_entered" from="circle" to="." method="_on_circle_body_entered"]
