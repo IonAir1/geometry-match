@@ -2,7 +2,7 @@ extends Node
 
 # Use this game API key if you want to test it with a functioning leaderboard
 # "987dbd0b9e5eb3749072acc47a210996eea9feb0"
-var game_API_key = "dev_9766c4e6d06a4a538e805e03c01ea393"
+var game_API_key = FileAccess.open("res://api.key", FileAccess.READ).get_as_text().replace('\n','')
 var development_mode = true
 var leaderboard_key = "leaderboardKey"
 var session_token = ""
@@ -69,6 +69,7 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 	var json = JSON.new().parse_string(body.get_string_from_utf8())
 	# Save player_identifier to file
 	var file = FileAccess.open("user://LootLocker.data", FileAccess.WRITE)
+
 	file.store_string(json.player_identifier)
 	file.close()
 	
