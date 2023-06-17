@@ -15,21 +15,14 @@ colors = PackedColorArray(0.12, 0.12, 0.12, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y5huk"]
 gradient = SubResource("Gradient_g32qd")
 
-[sub_resource type="Gradient" id="Gradient_l58mj"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.194349, 0.194349, 0.194349, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7yhwl"]
-gradient = SubResource("Gradient_l58mj")
-
 [sub_resource type="SphereMesh" id="SphereMesh_60cbx"]
 
-[sub_resource type="Gradient" id="Gradient_y7ryy"]
+[sub_resource type="Gradient" id="Gradient_h0wmr"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1)
+colors = PackedColorArray(0.19, 0.19, 0.19, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ccxi8"]
-gradient = SubResource("Gradient_y7ryy")
+gradient = SubResource("Gradient_h0wmr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5t1wb"]
 
@@ -59,6 +52,13 @@ gradient = SubResource("Gradient_76adx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk6yo"]
 size = Vector2(5, 500)
 
+[sub_resource type="Gradient" id="Gradient_foesi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4q8kt"]
+gradient = SubResource("Gradient_foesi")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xngn"]
 size = Vector2(229, 39)
 
@@ -86,8 +86,6 @@ script = ExtResource("1_daswn")
 [node name="walls" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
 position = Vector2(-3463, 628)
@@ -102,12 +100,6 @@ position = Vector2(360, 640)
 scale = Vector2(720, 1280)
 mesh = SubResource("BoxMesh_epllf")
 texture = SubResource("GradientTexture1D_y5huk")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="walls"]
-position = Vector2(360, 640)
-scale = Vector2(240, 1280)
-mesh = SubResource("BoxMesh_epllf")
-texture = SubResource("GradientTexture1D_7yhwl")
 
 [node name="ball_mesh" type="MeshInstance2D" parent="walls"]
 position = Vector2(360, 1100)
@@ -128,14 +120,14 @@ scale = Vector2(96.9827, 98.5469)
 mesh = SubResource("PrismMesh_8dhhe")
 texture = SubResource("GradientTexture1D_338yh")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls"]
-position = Vector2(240, 1150)
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls"]
+position = Vector2(480, 1150)
 scale = Vector2(5, 300)
 mesh = SubResource("BoxMesh_epllf")
 texture = SubResource("GradientTexture1D_nm1ey")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls"]
-position = Vector2(480, 1150)
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="walls"]
+position = Vector2(240, 1150)
 scale = Vector2(5, 300)
 mesh = SubResource("BoxMesh_epllf")
 texture = SubResource("GradientTexture1D_nm1ey")
@@ -147,6 +139,168 @@ shape = SubResource("RectangleShape2D_yk6yo")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
 position = Vector2(480, 1250)
 shape = SubResource("RectangleShape2D_yk6yo")
+
+[node name="Node2D" type="Node2D" parent="walls"]
+position = Vector2(240, 0)
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 100)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 180)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 260)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 340)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 420)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 500)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 580)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 660)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D12" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 740)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D13" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 820)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D14" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 900)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D15" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 980)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="Node2D2" type="Node2D" parent="walls"]
+position = Vector2(480, 0)
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 20)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 100)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 180)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 260)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 340)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 420)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 500)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 580)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 660)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D12" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 740)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D13" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 820)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D14" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 900)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
+
+[node name="MeshInstance2D15" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 980)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_epllf")
+texture = SubResource("GradientTexture1D_4q8kt")
 
 [node name="balls" type="Node2D" parent="."]
 script = ExtResource("1_ie5fb")

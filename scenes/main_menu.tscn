@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=30 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 
@@ -14,18 +14,11 @@ colors = PackedColorArray(0.12, 0.12, 0.12, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_3x6v6"]
 gradient = SubResource("Gradient_r62ac")
 
-[sub_resource type="Gradient" id="Gradient_k5qbm"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.194349, 0.194349, 0.194349, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cbrq"]
-gradient = SubResource("Gradient_k5qbm")
-
 [sub_resource type="SphereMesh" id="SphereMesh_liwgg"]
 
 [sub_resource type="Gradient" id="Gradient_ft5md"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1)
+colors = PackedColorArray(0.19, 0.19, 0.19, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bqnhd"]
 gradient = SubResource("Gradient_ft5md")
@@ -67,6 +60,15 @@ bg_color = Color(0.980392, 0.372549, 0.247059, 1)
 line_spacing = 1.0
 font_size = 64
 
+[sub_resource type="BoxMesh" id="BoxMesh_qfyf3"]
+
+[sub_resource type="Gradient" id="Gradient_wa0ga"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5avjr"]
+gradient = SubResource("Gradient_wa0ga")
+
 [sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
 
 [sub_resource type="Gradient" id="Gradient_wtx43"]
@@ -107,12 +109,6 @@ position = Vector2(360, 400)
 scale = Vector2(720, 2000)
 mesh = SubResource("BoxMesh_4kejc")
 texture = SubResource("GradientTexture1D_3x6v6")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="walls"]
-position = Vector2(360, 400)
-scale = Vector2(240, 2000)
-mesh = SubResource("BoxMesh_4kejc")
-texture = SubResource("GradientTexture1D_0cbrq")
 
 [node name="ball_mesh" type="MeshInstance2D" parent="walls"]
 position = Vector2(360, 1100)
@@ -170,6 +166,240 @@ offset_right = 148.0
 offset_bottom = 1291.0
 text = "0"
 label_settings = SubResource("LabelSettings_vpjir")
+
+[node name="Node2D" type="Node2D" parent="walls"]
+position = Vector2(240, 0)
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 20)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D16" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -60)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D17" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -140)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D18" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -220)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D19" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -300)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D20" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -380)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D21" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -460)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 100)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 180)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 260)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 340)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 420)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 500)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 580)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 660)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D12" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 740)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D13" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 820)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D14" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 900)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D15" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, 980)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="Node2D2" type="Node2D" parent="walls"]
+position = Vector2(480, 0)
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 20)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D16" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -60)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D17" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -140)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D18" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -220)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D19" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -300)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D20" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -380)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D21" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -460)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 100)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 180)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 260)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 340)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 420)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 500)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 580)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 660)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D12" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 740)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D13" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 820)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D14" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 900)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
+
+[node name="MeshInstance2D15" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, 980)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_qfyf3")
+texture = SubResource("GradientTexture1D_5avjr")
 
 [node name="balls" type="Node2D" parent="."]
 
