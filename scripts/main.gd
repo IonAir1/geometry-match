@@ -25,6 +25,8 @@ func _process(delta):
 func _on_square_body_entered(body):
 	if body.shape == 'square':
 		Global.score += 1
+		if body.healing:
+			Global.health = 10
 	else:
 		Global.health -= 1
 		if not healing:
@@ -35,6 +37,8 @@ func _on_square_body_entered(body):
 func _on_circle_body_entered(body):
 	if body.shape == 'circle':
 		Global.score += 1
+		if body.healing:
+			Global.health = 10
 	else:
 		Global.health -= 1
 		if not healing:
@@ -45,6 +49,8 @@ func _on_circle_body_entered(body):
 func _on_triangle_body_entered(body):
 	if body.shape == 'triangle':
 		Global.score += 1
+		if body.healing:
+			Global.health = 10
 	else:
 		Global.health -= 1
 		if not healing:

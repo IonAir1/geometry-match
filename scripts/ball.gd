@@ -1,9 +1,12 @@
 extends RigidBody2D
 
 var shape: String
+var healing: bool = false
 var main_menu: bool = false
 
 func _ready():
+	if not healing:
+		$heal.queue_free()
 	if shape == 'circle':
 		$square_mesh.queue_free()
 		$square_collision.queue_free()

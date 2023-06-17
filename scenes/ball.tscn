@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gleckopatort"]
+[gd_scene load_steps=16 format=3 uid="uid://gleckopatort"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_p5jqa"]
 
@@ -35,6 +35,15 @@ radius = 49.0102
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdff"]
 size = Vector2(97, 99)
 
+[sub_resource type="BoxMesh" id="BoxMesh_tknka"]
+
+[sub_resource type="Gradient" id="Gradient_wbnl0"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lonmp"]
+gradient = SubResource("Gradient_wbnl0")
+
 [node name="ball" type="RigidBody2D"]
 collision_mask = 2
 input_pickable = true
@@ -66,3 +75,16 @@ shape = SubResource("RectangleShape2D_cmdff")
 
 [node name="triangle_collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(49, 50, 0, -49, -49, 50)
+
+[node name="heal" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="heal"]
+scale = Vector2(40, 8.889)
+mesh = SubResource("BoxMesh_tknka")
+texture = SubResource("GradientTexture1D_lonmp")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="heal"]
+rotation = 1.5708
+scale = Vector2(40, 8.889)
+mesh = SubResource("BoxMesh_tknka")
+texture = SubResource("GradientTexture1D_lonmp")

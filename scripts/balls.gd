@@ -7,9 +7,13 @@ var status: String
 var selected_ball: Object
 var min_time: int = 0.5
 var max_time: int = 1
+var heal_min: int = 10
+var heal_max: int = 15
+var heal_count: int
 
 
 func _ready():
+	heal_count = randi_range(heal_min, heal_max)
 	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
 	spawn()
 
@@ -46,6 +50,13 @@ func spawn():
 		b.shape = 'square'
 	elif shape == 2:
 		b.shape = 'triangle'
+	
+	if heal_count <= 0:
+		heal_count = randi_range(heal_min, heal_max)
+		b.healing = true
+	else:
+		heal_count -= 1
+	
 	add_child(b)
 	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
 	spawn()
