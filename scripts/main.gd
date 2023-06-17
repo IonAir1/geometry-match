@@ -27,10 +27,14 @@ func _on_square_body_entered(body):
 		Global.score += 1
 		if body.healing:
 			Global.health = 10
+		if body.freezing:
+			freeze()
 	else:
 		Global.health -= 1
 		if not healing:
 			heal()
+		if body.freezing:
+			freeze()
 	body.queue_free()
 
 
@@ -43,6 +47,8 @@ func _on_circle_body_entered(body):
 		Global.health -= 1
 		if not healing:
 			heal()
+		if body.freezing:
+			freeze()
 	body.queue_free()
 
 
@@ -67,3 +73,7 @@ func heal():
 		heal()
 	else:
 		healing = false
+
+
+func freeze():
+	pass
