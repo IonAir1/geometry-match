@@ -69,7 +69,8 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 	var json = JSON.new().parse_string(body.get_string_from_utf8())
 	# Save player_identifier to file
 	var file = FileAccess.open("user://LootLocker.data", FileAccess.WRITE)
-
+	if json == null:
+		return
 	file.store_string(json.player_identifier)
 	file.close()
 	
