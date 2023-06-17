@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	$score.text = str(Global.score)
-	$health.value = Global.health
+	create_tween().tween_property($health, "value", Global.health, 0.2).set_trans(Tween.TRANS_SINE)
 	if Global.health <= 0 and not lost:
 		lost = true
 		$fade.visible = true
