@@ -32,7 +32,7 @@ func _input(ev):
 			selected_ball.freeze = true
 			status = "clicked"
 			offset = ev.position - selected_ball.position
-		elif status == "dragging" and not ev.pressed:
+		elif not ev.pressed:
 			status = "released"
 			selected_ball.freeze = false
 	if status == "clicked" and ev is InputEventScreenDrag:
