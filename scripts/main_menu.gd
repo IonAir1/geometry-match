@@ -12,7 +12,8 @@ func _ready():
 	if Global.score > Global.high_score:
 		Global.high_score = Global.score
 		Leaderboard._upload_score(Global.score)
-	
+
+	Global.freeze = false
 	$scores.modulate.a = 1
 	$walls.position.y = 380
 	$fade.visible = true

@@ -38,12 +38,26 @@ func _input(ev):
 			offset = ev.position - selected_ball.position
 		elif not ev.pressed:
 			status = "released"
-			selected_ball.freeze = false
+			if not Global.freeze:
+				selected_ball.freeze = false
 	if status == "clicked" and ev is InputEventScreenDrag:
 		status = "dragging"
 
 
-func spawn():
+func freeze():
+	for i in range(15):
+		freeze_spawn()
+		await get_tree().create_timer(0.03).timeout
+	await get_tree().create_timer(0.7).timeout
+	for ball in get_children():
+		ball.freeze = true
+	await get_tree().create_timer(10).timeout
+	Global.freeze = false
+	for ball in get_children():
+		ball.freeze = false
+
+
+func freeze_spawn():
 	var b: Node2D = ball.instantiate()
 	b.position.x = randi_range(50, 675)
 	b.position.y = -60
@@ -54,20 +68,35 @@ func spawn():
 		b.shape = 'square'
 	elif shape == 2:
 		b.shape = 'triangle'
-	
-	if heal_count <= 0:
-		heal_count = randi_range(heal_min, heal_max)
-		b.healing = true
-	else:
-		heal_count -= 1
-
-		if freeze_count <= 0:
-			freeze_count = randi_range(freeze_min, freeze_max)
-			b.freezing = true
-		else:
-			freeze_count -= 1
-
 	add_child(b)
+
+
+func spawn():
+	if not Global.freeze:
+		var b: Node2D = ball.instantiate()
+		b.position.x = randi_range(50, 675)
+		b.position.y = -60
+		var shape: int = randi()%3
+		if shape == 0:
+			b.shape = 'circle'
+		elif shape == 1:
+			b.shape = 'square'
+		elif shape == 2:
+			b.shape = 'triangle'
+		
+		if heal_count <= 0:
+			heal_count = randi_range(heal_min, heal_max)
+			b.healing = true
+		else:
+			heal_count -= 1
+
+			if freeze_count <= 0:
+				freeze_count = randi_range(freeze_min, freeze_max)
+				b.freezing = true
+			else:
+				freeze_count -= 1
+
+		add_child(b)
 	await get_tree().create_timer(randf_range(time_min, time_max)).timeout
 	spawn()
 

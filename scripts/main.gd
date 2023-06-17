@@ -5,6 +5,7 @@ var lost: bool = false
 
 
 func _ready():
+	Global.freeze = false
 	Global.score = 0
 	Global.health = 10
 	$fade.visible = false
@@ -76,4 +77,6 @@ func heal():
 
 
 func freeze():
-	pass
+	if not Global.freeze:
+		Global.freeze = true
+		$balls.freeze()
