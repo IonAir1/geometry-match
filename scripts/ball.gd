@@ -21,3 +21,6 @@ func _ready():
 	rotation_degrees = randi()%360
 	angular_velocity = randf_range(-7, 7)
 
+func _process(delta):
+	if position.y > 1600:
+		queue_free()

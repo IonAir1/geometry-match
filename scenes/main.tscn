@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b88ff4d73mj82"]
+[gd_scene load_steps=28 format=3 uid="uid://b88ff4d73mj82"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_daswn"]
 [ext_resource type="Script" path="res://scripts/balls.gd" id="1_ie5fb"]
@@ -70,6 +70,15 @@ bg_color = Color(0.980392, 0.372549, 0.247059, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_57hxi"]
 line_spacing = 1.0
 font_size = 64
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1356"]
+
+[sub_resource type="Gradient" id="Gradient_2k5md"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7cc7g"]
+gradient = SubResource("Gradient_2k5md")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_daswn")
@@ -184,10 +193,17 @@ show_percentage = false
 offset_top = 1202.0
 offset_right = 148.0
 offset_bottom = 1291.0
-text = "9999"
+text = "0
+"
 label_settings = SubResource("LabelSettings_57hxi")
+
+[node name="fade" type="MeshInstance2D" parent="."]
+visible = false
+position = Vector2(360, 640)
+scale = Vector2(720, 1280)
+mesh = SubResource("BoxMesh_q1356")
+texture = SubResource("GradientTexture1D_7cc7g")
 
 [connection signal="body_entered" from="square" to="." method="_on_square_body_entered"]
 [connection signal="body_entered" from="circle" to="." method="_on_circle_body_entered"]
 [connection signal="body_entered" from="triangle" to="." method="_on_triangle_body_entered"]
-[connection signal="value_changed" from="health" to="." method="_on_health_value_changed"]

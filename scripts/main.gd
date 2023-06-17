@@ -1,17 +1,24 @@
 extends Node2D
 
 var healing: bool = false
+var lost: bool = false
 
 
 func _ready():
 	Global.score = 0
 	Global.health = 10
+	$fade.visible = false
 
 
 func _process(delta):
 	$score.text = str(Global.score)
 	$health.value = Global.health
-	if Global.health <= 0:
+	if Global.health <= 0 and not lost:
+		lost = true
+		$fade.visible = true
+		$fade.modulate.a = 0
+		await create_tween().parallel().tween_property($fade, "modulate:a", 1, 0.5).set_trans(Tween.TRANS_SINE).finished
+		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 

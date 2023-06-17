@@ -1,19 +1,43 @@
 extends Node2D
 
+
 var started: bool = false
+var min_time: int = 0.5
+var max_time: int = 1
+var ball: PackedScene = preload("res://scenes/ball.tscn")
+
 
 func _ready():
-	$walls.position.y = 500
-
-
-func _process(delta):
-	if started:
-		if $walls.position.y > 0:
-			$walls.position.y -= 10
-		else:
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+	$walls.position.y = 380
+	$fade.visible = true
+	$fade.modulate.a = 1
+	await create_tween().parallel().tween_property($fade, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
+	$fade.visible = false
+	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
+	spawn()
 
 
 func _input(event):
-	if event.is_pressed():
+	if event.is_pressed() and not started:
 		started = true
+		while $balls.get_child_count() > 0:
+			await get_tree().create_timer(0.1).timeout
+		await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func spawn():
+	var b: Node2D = ball.instantiate()
+	b.position.x = randi_range(50, 675)
+	b.position.y = -60
+	var shape: int = randi()%3
+	if shape == 0:
+		b.shape = 'circle'
+	elif shape == 1:
+		b.shape = 'square'
+	elif shape == 2:
+		b.shape = 'triangle'
+	if not started:
+		$balls.add_child(b)
+		await get_tree().create_timer(randf_range(min_time, max_time)).timeout
+		spawn()

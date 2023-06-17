@@ -10,7 +10,6 @@ var max_time: int = 1
 
 
 func _ready():
-	randomize()
 	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
 	spawn()
 

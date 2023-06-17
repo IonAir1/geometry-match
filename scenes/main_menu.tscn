@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=26 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 
@@ -67,10 +67,20 @@ bg_color = Color(0.980392, 0.372549, 0.247059, 1)
 line_spacing = 1.0
 font_size = 64
 
+[sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
+
+[sub_resource type="Gradient" id="Gradient_wtx43"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_srroa"]
+gradient = SubResource("Gradient_wtx43")
+
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_ynysc")
 
 [node name="walls" type="StaticBody2D" parent="."]
+position = Vector2(0, 380)
 collision_layer = 2
 collision_mask = 0
 
@@ -150,3 +160,12 @@ offset_right = 148.0
 offset_bottom = 1291.0
 text = "0"
 label_settings = SubResource("LabelSettings_vpjir")
+
+[node name="balls" type="Node2D" parent="."]
+
+[node name="fade" type="MeshInstance2D" parent="."]
+visible = false
+position = Vector2(360, 640)
+scale = Vector2(720, 1280)
+mesh = SubResource("BoxMesh_y8do0")
+texture = SubResource("GradientTexture1D_srroa")
