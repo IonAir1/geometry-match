@@ -15,7 +15,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if status == "dragging":
+	if status == "dragging" and is_instance_valid(selected_ball):
 		selected_ball.global_transform.origin = (get_viewport().get_mouse_position() - offset).clamp(Vector2(0,0),Vector2(720,1280))
 
 
