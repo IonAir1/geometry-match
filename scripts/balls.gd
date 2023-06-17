@@ -5,16 +5,20 @@ var new_pos: Vector2
 var offset: Vector2
 var status: String
 var selected_ball: Object
-var min_time: int = 0.5
-var max_time: int = 1
+var time_min: int = 0.5
+var time_max: int = 1
 var heal_min: int = 10
 var heal_max: int = 15
 var heal_count: int
+var freeze_min: int = 18
+var freeze_max: int = 30
+var freeze_count: int
 
 
 func _ready():
 	heal_count = randi_range(heal_min, heal_max)
-	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
+	freeze_count = randi_range(freeze_min, freeze_max)
+	await get_tree().create_timer(randf_range(time_min, time_max)).timeout
 	spawn()
 
 
@@ -56,9 +60,15 @@ func spawn():
 		b.healing = true
 	else:
 		heal_count -= 1
-	
+
+		if freeze_count <= 0:
+			freeze_count = randi_range(freeze_min, freeze_max)
+			b.freezing = true
+		else:
+			freeze_count -= 1
+
 	add_child(b)
-	await get_tree().create_timer(randf_range(min_time, max_time)).timeout
+	await get_tree().create_timer(randf_range(time_min, time_max)).timeout
 	spawn()
 
 

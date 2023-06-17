@@ -1,33 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://gleckopatort"]
+[gd_scene load_steps=12 format=3 uid="uid://gleckopatort"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_p5jqa"]
+[ext_resource type="Texture2D" uid="uid://b02tlj5ikd0uh" path="res://textures/yellow.tres" id="2_kgypc"]
+[ext_resource type="Texture2D" uid="uid://bxnu6h68lyefd" path="res://textures/red.tres" id="3_7dupy"]
+[ext_resource type="Texture2D" uid="uid://bl8oinlp6475y" path="res://textures/blue.tres" id="4_8wnht"]
+[ext_resource type="Texture2D" uid="uid://capj0clpm5cky" path="res://textures/green.tres" id="5_3ehq0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8qdkc"]
 
-[sub_resource type="Gradient" id="Gradient_nuvmt"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.938776, 0.921022, 0.162213, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ftbw"]
-gradient = SubResource("Gradient_nuvmt")
-
 [sub_resource type="BoxMesh" id="BoxMesh_lgr2i"]
 
-[sub_resource type="Gradient" id="Gradient_u8jht"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_py8o5"]
-gradient = SubResource("Gradient_u8jht")
-
 [sub_resource type="PrismMesh" id="PrismMesh_uxpd8"]
-
-[sub_resource type="Gradient" id="Gradient_0h7wr"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_utedn"]
-gradient = SubResource("Gradient_0h7wr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjm03"]
 radius = 49.0102
@@ -36,13 +19,6 @@ radius = 49.0102
 size = Vector2(97, 99)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tknka"]
-
-[sub_resource type="Gradient" id="Gradient_wbnl0"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lonmp"]
-gradient = SubResource("Gradient_wbnl0")
 
 [node name="ball" type="RigidBody2D"]
 collision_mask = 2
@@ -54,26 +30,29 @@ script = ExtResource("1_p5jqa")
 [node name="ball_mesh" type="MeshInstance2D" parent="."]
 scale = Vector2(96.9827, 98.5469)
 mesh = SubResource("SphereMesh_8qdkc")
-texture = SubResource("GradientTexture1D_2ftbw")
+texture = ExtResource("2_kgypc")
 
 [node name="square_mesh" type="MeshInstance2D" parent="."]
 scale = Vector2(96.9827, 98.5469)
 mesh = SubResource("BoxMesh_lgr2i")
-texture = SubResource("GradientTexture1D_py8o5")
+texture = ExtResource("3_7dupy")
 
 [node name="triangle_mesh" type="MeshInstance2D" parent="."]
 rotation = 3.14159
 scale = Vector2(96.9827, 98.5469)
 mesh = SubResource("PrismMesh_uxpd8")
-texture = SubResource("GradientTexture1D_utedn")
+texture = ExtResource("4_8wnht")
 
 [node name="ball_collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_bjm03")
 
 [node name="square_collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_cmdff")
 
 [node name="triangle_collision" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(49, 50, 0, -49, -49, 50)
 
 [node name="heal" type="Node2D" parent="."]
@@ -81,10 +60,10 @@ polygon = PackedVector2Array(49, 50, 0, -49, -49, 50)
 [node name="MeshInstance2D" type="MeshInstance2D" parent="heal"]
 scale = Vector2(40, 8.889)
 mesh = SubResource("BoxMesh_tknka")
-texture = SubResource("GradientTexture1D_lonmp")
+texture = ExtResource("5_3ehq0")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="heal"]
 rotation = 1.5708
 scale = Vector2(40, 8.889)
 mesh = SubResource("BoxMesh_tknka")
-texture = SubResource("GradientTexture1D_lonmp")
+texture = ExtResource("5_3ehq0")

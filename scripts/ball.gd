@@ -2,11 +2,18 @@ extends RigidBody2D
 
 var shape: String
 var healing: bool = false
+var freezing: bool = false
 var main_menu: bool = false
 
 func _ready():
-	if not healing:
-		$heal.queue_free()
+	if freezing:
+		$ball_mesh.texture = preload("res://textures/white.tres")
+		$square_mesh.texture = preload("res://textures/white.tres")
+		$triangle_mesh.texture = preload("res://textures/white.tres")
+	if healing:
+		$heal.visible = true
+	else:
+		$heal.visible = false
 	if shape == 'circle':
 		$square_mesh.queue_free()
 		$square_collision.queue_free()
