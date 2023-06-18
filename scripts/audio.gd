@@ -10,10 +10,6 @@ func sound(sound):
 		get_node(sound).play()
 
 
-func _ready():
-	$music.play()
-
-
 func _on_music_finished():
 	$music.play()
 

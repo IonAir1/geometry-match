@@ -80,15 +80,6 @@ font_color = Color(0.19, 0.19, 0.19, 1)
 outline_size = 10
 outline_color = Color(0.19, 0.19, 0.19, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
-
-[sub_resource type="Gradient" id="Gradient_wtx43"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_srroa"]
-gradient = SubResource("Gradient_wtx43")
-
 [sub_resource type="LabelSettings" id="LabelSettings_l2yxk"]
 font = ExtResource("2_2u1iy")
 font_size = 64
@@ -100,6 +91,15 @@ font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_iu5ur"]
 font_size = 72
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
+
+[sub_resource type="Gradient" id="Gradient_wtx43"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_srroa"]
+gradient = SubResource("Gradient_wtx43")
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_ynysc")
@@ -510,13 +510,6 @@ scale_amount_max = 5.0
 
 [node name="balls" type="Node2D" parent="."]
 
-[node name="fade" type="MeshInstance2D" parent="."]
-visible = false
-position = Vector2(360, 640)
-scale = Vector2(720, 1280)
-mesh = SubResource("BoxMesh_y8do0")
-texture = SubResource("GradientTexture1D_srroa")
-
 [node name="scores" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -592,6 +585,13 @@ label_settings = SubResource("LabelSettings_iu5ur")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="play"]
 visible = false
 polygon = PackedVector2Array(0, 0, 720, 0, 720, 1279, 244, 1279, 244, 1151, 0, 1150)
+
+[node name="fade" type="MeshInstance2D" parent="."]
+visible = false
+position = Vector2(360, 640)
+scale = Vector2(720, 1280)
+mesh = SubResource("BoxMesh_y8do0")
+texture = SubResource("GradientTexture1D_srroa")
 
 [connection signal="pressed" from="scores/sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="scores/music" to="." method="_on_music_pressed"]
