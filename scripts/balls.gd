@@ -41,6 +41,8 @@ func _input(ev):
 			status = "released"
 			Audio.sound("drop")
 			if not Global.freeze:
+				if selected_ball == null:
+					return
 				selected_ball.freeze = false
 	if status == "clicked" and ev is InputEventScreenDrag:
 		status = "dragging"
