@@ -10,4 +10,4 @@ func _ready():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _process(delta):
-	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
+	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,2))-Vector2(360,640))

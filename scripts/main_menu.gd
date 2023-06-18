@@ -2,8 +2,8 @@ extends Node2D
 
 
 var started: bool
-var min_time: int = 0.5
-var max_time: int = 1
+var min_time: float = 0.3
+var max_time: float = 0.8
 var ball: PackedScene = preload("res://scenes/ball.tscn")
 var pressing: bool
 var touch_position: Vector2
@@ -64,7 +64,7 @@ func _input(ev):
 
 
 func _on_play_input_event(viewport, event, shape_idx):
-	if event.is_pressed() and  not started:
+	if event.is_pressed() and not started:
 		started = true
 		await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
 		while $balls.get_child_count() > 0:
