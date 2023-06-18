@@ -1,6 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=32 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
+[ext_resource type="Texture2D" uid="uid://dks6con4sejdk" path="res://textures/sound.png" id="2_oewma"]
+[ext_resource type="Texture2D" uid="uid://133tr05mhpv7" path="res://textures/music.png" id="3_vjie2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2egl"]
 size = Vector2(6932, 2300)
@@ -449,6 +451,16 @@ text = "Leaderboards"
 label_settings = SubResource("LabelSettings_phlcm")
 horizontal_alignment = 1
 
+[node name="sound" type="TouchScreenButton" parent="scores"]
+position = Vector2(-340, 1060)
+texture_normal = ExtResource("2_oewma")
+texture_pressed = ExtResource("2_oewma")
+
+[node name="music" type="TouchScreenButton" parent="scores"]
+position = Vector2(-220, 1060)
+texture_normal = ExtResource("3_vjie2")
+texture_pressed = ExtResource("3_vjie2")
+
 [node name="Control" type="Control" parent="scores"]
 anchors_preset = 0
 offset_top = 800.0
@@ -469,3 +481,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
 label_settings = SubResource("LabelSettings_iu5ur")
+
+[node name="play" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="play"]
+visible = false
+polygon = PackedVector2Array(0, 0, 720, 0, 720, 1279, 244, 1279, 244, 1151, 0, 1150)
+
+[connection signal="pressed" from="scores/sound" to="." method="_on_sound_pressed"]
+[connection signal="pressed" from="scores/music" to="." method="_on_music_pressed"]
+[connection signal="input_event" from="play" to="." method="_on_play_input_event"]

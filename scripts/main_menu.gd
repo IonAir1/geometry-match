@@ -33,13 +33,16 @@ func _process(delta):
 func _input(event):
 	if event.is_pressed():
 		Audio.sound("select")
-		if not started:
-			started = true
-			await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
-			while $balls.get_child_count() > 0:
-				await get_tree().create_timer(0.1).timeout
-			await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_play_input_event(viewport, event, shape_idx):
+	if event.is_pressed() and  not started:
+		started = true
+		await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
+		while $balls.get_child_count() > 0:
+			await get_tree().create_timer(0.1).timeout
+		await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
 func spawn():
@@ -58,3 +61,25 @@ func spawn():
 		$balls.add_child(b)
 		await get_tree().create_timer(randf_range(min_time, max_time)).timeout
 		spawn()
+
+
+func _on_music_toggled(button_pressed):
+	pass # Replace with function body.
+
+
+func _on_sound_pressed():
+	if Audio.sound_on:
+		Audio.sound_on = false
+		$scores/sound.modulate = Color(0.2, 0.2, 0.2, 1)
+	else:
+		Audio.sound_on = true
+		$scores/sound.modulate = Color(1, 1, 1, 1)
+
+
+func _on_music_pressed():
+	if Audio.music_on:
+		Audio.music_on = false
+		$scores/music.modulate = Color(0.2, 0.2, 0.2, 1)
+	else:
+		Audio.music_on = true
+		$scores/music.modulate = Color(1, 1, 1, 1)
