@@ -38,6 +38,9 @@ func _ready():
 
 
 func _process(delta):
+	
+	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
+	
 	$particles.position = touch_position
 	$scores/score.text = "Score: " + str(Global.score)
 	$scores/highscore.text = "Best Score: " + str(Global.high_score)

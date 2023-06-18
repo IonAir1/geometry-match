@@ -13,6 +13,7 @@ func _ready():
 
 
 func _process(delta):
+	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
 	$particles.position = $balls.touch_position
 	$score.text = str(Global.score)
 	create_tween().tween_property($health, "value", Global.health, 0.2).set_trans(Tween.TRANS_SINE)

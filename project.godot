@@ -28,6 +28,7 @@ window/size/viewport_height=1280
 window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input_devices]
 
@@ -43,3 +44,4 @@ pointing/emulate_mouse_from_touch=false
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.19, 0.19, 0.19, 1)

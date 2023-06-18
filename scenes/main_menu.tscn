@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=39 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 [ext_resource type="FontFile" uid="uid://bwud11n6mcxdd" path="res://textures/Roboto-Regular.ttf" id="2_2u1iy"]
@@ -108,6 +108,15 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_srroa"]
 gradient = SubResource("Gradient_wtx43")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rk7x8"]
+
+[sub_resource type="Gradient" id="Gradient_2ubet"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6oarh"]
+gradient = SubResource("Gradient_2ubet")
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_ynysc")
@@ -618,6 +627,12 @@ position = Vector2(360, 640)
 scale = Vector2(720, 1280)
 mesh = SubResource("BoxMesh_y8do0")
 texture = SubResource("GradientTexture1D_srroa")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(335, -2856)
+scale = Vector2(14922, 5712)
+mesh = SubResource("BoxMesh_rk7x8")
+texture = SubResource("GradientTexture1D_6oarh")
 
 [connection signal="pressed" from="scores/sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="scores/music" to="." method="_on_music_pressed"]
