@@ -386,9 +386,8 @@ text = "0
 label_settings = SubResource("LabelSettings_57hxi")
 
 [node name="fade" type="MeshInstance2D" parent="."]
-visible = false
-position = Vector2(360, 640)
-scale = Vector2(720, 1280)
+position = Vector2(375, -1957.5)
+scale = Vector2(14342, 6595)
 mesh = SubResource("BoxMesh_q1356")
 texture = SubResource("GradientTexture1D_7cc7g")
 
@@ -401,10 +400,11 @@ mesh = SubResource("BoxMesh_q1356")
 texture = SubResource("GradientTexture1D_cuqsg")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(335, -3606)
+position = Vector2(430, -2856)
 scale = Vector2(14922, 5712)
 mesh = SubResource("BoxMesh_4ck5u")
 texture = SubResource("GradientTexture1D_eu0i1")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="square" to="." method="_on_square_body_entered"]
 [connection signal="body_entered" from="circle" to="." method="_on_circle_body_entered"]

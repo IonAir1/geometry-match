@@ -623,8 +623,8 @@ polygon = PackedVector2Array(0, 0, 720, 0, 720, 1279, 244, 1279, 244, 1151, 0, 1
 
 [node name="fade" type="MeshInstance2D" parent="."]
 visible = false
-position = Vector2(360, 640)
-scale = Vector2(720, 1280)
+position = Vector2(363.5, -2006)
+scale = Vector2(14519, 6980)
 mesh = SubResource("BoxMesh_y8do0")
 texture = SubResource("GradientTexture1D_srroa")
 
@@ -633,6 +633,7 @@ position = Vector2(335, -2856)
 scale = Vector2(14922, 5712)
 mesh = SubResource("BoxMesh_rk7x8")
 texture = SubResource("GradientTexture1D_6oarh")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="scores/sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="scores/music" to="." method="_on_music_pressed"]

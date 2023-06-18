@@ -5,6 +5,7 @@ var lost: bool
 
 
 func _ready():
+	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
 	Global.freeze = false
 	Global.score = 0
 	Global.health = 10
@@ -14,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
-	$particles.position = $balls.touch_position
+	$particles.global_position = $balls.touch_position
 	$score.text = str(Global.score)
 	create_tween().tween_property($health, "value", Global.health, 0.2).set_trans(Tween.TRANS_SINE)
 	if Global.health <= 0 and not lost:

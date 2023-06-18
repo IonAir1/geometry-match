@@ -26,11 +26,15 @@ func _ready():
 
 func _physics_process(delta):
 	if status == "dragging" and is_instance_valid(selected_ball):
-		selected_ball.global_transform.origin = (touch_position - offset).clamp(Vector2(0,0),Vector2(720,1280))
+		selected_ball.global_transform.origin = (touch_position - offset).clamp(
+			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))-Vector2(360,1280),
+			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))+Vector2(360,0)
+			)
+		print(selected_ball.global_transform.origin)
 
 
 func _input(ev):
-	if not ev is InputEventMouse:
+	if "index" in ev:
 		if ev.index == touch_index:
 			touch_position = ev.position
 	if ev is InputEventScreenTouch:
@@ -42,7 +46,7 @@ func _input(ev):
 			selected_ball.freeze = true
 			touch_index = ev.index
 			status = "clicked"
-			offset = ev.position - selected_ball.position
+			offset = ev.position - selected_ball.global_position
 			get_node("../particles").emitting = true
 			Audio.sound("select")
 		elif not ev.pressed:

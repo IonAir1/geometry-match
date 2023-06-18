@@ -11,6 +11,8 @@ var touch_index: int
 
 
 func _ready():
+	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
+	$particles.global_position = touch_position
 
 	if Global.score > Global.high_score:
 		Global.high_score = Global.score
@@ -38,20 +40,19 @@ func _ready():
 
 
 func _process(delta):
-	
 	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
-	
-	$particles.position = touch_position
+	$particles.global_position = touch_position
 	$scores/score.text = "Score: " + str(Global.score)
 	$scores/highscore.text = "Best Score: " + str(Global.high_score)
 	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
 
 
 func _input(ev):
-	if not ev is InputEventMouse:
+	if "index" in ev:
 		if ev.index == touch_index:
 			touch_position = ev.position
 	if ev is InputEventScreenTouch:
+		touch_position = ev.position
 		touch_index = ev.index
 		if ev.is_pressed() and not pressing:
 			pressing = true
