@@ -28,7 +28,7 @@ func _ready():
 	Audio.override_sound = false
 	Global.freeze = false
 	$scores.modulate.a = 1
-	$walls.position.y = 380
+	$walls.position.y = 750
 	$fade.visible = true
 	$fade.modulate.a = 1
 	await create_tween().parallel().tween_property($fade, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished

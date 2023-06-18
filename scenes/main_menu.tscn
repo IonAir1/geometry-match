@@ -1,11 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=34 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
+[ext_resource type="FontFile" uid="uid://bwud11n6mcxdd" path="res://textures/Roboto-Regular.ttf" id="2_2u1iy"]
 [ext_resource type="Texture2D" uid="uid://dks6con4sejdk" path="res://textures/sound.png" id="2_oewma"]
 [ext_resource type="Texture2D" uid="uid://133tr05mhpv7" path="res://textures/music.png" id="3_vjie2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2egl"]
-size = Vector2(6932, 2300)
+size = Vector2(6920, 2910)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4kejc"]
 
@@ -71,6 +72,14 @@ colors = PackedColorArray(0.18, 0.18, 0.18, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_742f2"]
 gradient = SubResource("Gradient_xd8tb")
 
+[sub_resource type="LabelSettings" id="LabelSettings_fxx76"]
+line_spacing = -10.0
+font = ExtResource("2_2u1iy")
+font_size = 96
+font_color = Color(0.19, 0.19, 0.19, 1)
+outline_size = 10
+outline_color = Color(0.19, 0.19, 0.19, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
 
 [sub_resource type="Gradient" id="Gradient_wtx43"]
@@ -81,10 +90,12 @@ colors = PackedColorArray(0, 0, 0, 1)
 gradient = SubResource("Gradient_wtx43")
 
 [sub_resource type="LabelSettings" id="LabelSettings_l2yxk"]
+font = ExtResource("2_2u1iy")
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_phlcm"]
 line_spacing = 2.0
+font = ExtResource("2_2u1iy")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_iu5ur"]
@@ -94,21 +105,21 @@ font_size = 72
 script = ExtResource("1_ynysc")
 
 [node name="walls" type="StaticBody2D" parent="."]
-position = Vector2(0, 380)
+position = Vector2(0, 750)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
-position = Vector2(-3463, 500)
+position = Vector2(-3460, 235)
 shape = SubResource("RectangleShape2D_e2egl")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
-position = Vector2(4186, 500)
+position = Vector2(4180, 195)
 shape = SubResource("RectangleShape2D_e2egl")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="walls"]
-position = Vector2(360, 400)
-scale = Vector2(720, 2000)
+position = Vector2(360, -96.5)
+scale = Vector2(720, 2993)
 mesh = SubResource("BoxMesh_4kejc")
 texture = SubResource("GradientTexture1D_3x6v6")
 
@@ -210,6 +221,30 @@ texture = SubResource("GradientTexture1D_742f2")
 
 [node name="MeshInstance2D21" type="MeshInstance2D" parent="walls/Node2D"]
 position = Vector2(0, -460)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D22" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -540)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D23" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -620)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D24" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -700)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D25" type="MeshInstance2D" parent="walls/Node2D"]
+position = Vector2(0, -780)
 scale = Vector2(5, 40)
 mesh = SubResource("BoxMesh_hgf28")
 texture = SubResource("GradientTexture1D_742f2")
@@ -331,6 +366,30 @@ scale = Vector2(5, 40)
 mesh = SubResource("BoxMesh_hgf28")
 texture = SubResource("GradientTexture1D_742f2")
 
+[node name="MeshInstance2D22" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -540)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D23" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -620)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D24" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -700)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
+[node name="MeshInstance2D25" type="MeshInstance2D" parent="walls/Node2D2"]
+position = Vector2(0, -780)
+scale = Vector2(5, 40)
+mesh = SubResource("BoxMesh_hgf28")
+texture = SubResource("GradientTexture1D_742f2")
+
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="walls/Node2D2"]
 position = Vector2(0, 100)
 scale = Vector2(5, 40)
@@ -402,6 +461,40 @@ position = Vector2(0, 980)
 scale = Vector2(5, 40)
 mesh = SubResource("BoxMesh_hgf28")
 texture = SubResource("GradientTexture1D_742f2")
+
+[node name="Control2" type="Control" parent="walls"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 340.0
+offset_top = -120.0
+offset_right = 380.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="title" type="Label" parent="walls/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.5
+offset_top = -117.0
+offset_right = 331.5
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "G E O M E T R Y
+M A T C H"
+label_settings = SubResource("LabelSettings_fxx76")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="particles" type="CPUParticles2D" parent="."]
 emitting = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://b88ff4d73mj82"]
+[gd_scene load_steps=32 format=3 uid="uid://b88ff4d73mj82"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_daswn"]
 [ext_resource type="Script" path="res://scripts/balls.gd" id="1_ie5fb"]
+[ext_resource type="FontFile" uid="uid://bwud11n6mcxdd" path="res://textures/Roboto-Regular.ttf" id="3_5v0lb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm6fi"]
 size = Vector2(6932, 2068)
@@ -71,6 +72,7 @@ bg_color = Color(0.980392, 0.372549, 0.247059, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_57hxi"]
 line_spacing = 1.0
+font = ExtResource("3_5v0lb")
 font_size = 64
 
 [sub_resource type="BoxMesh" id="BoxMesh_q1356"]
@@ -367,9 +369,9 @@ value = 10.0
 show_percentage = false
 
 [node name="score" type="Label" parent="."]
-offset_top = 1202.0
+offset_top = 1212.0
 offset_right = 148.0
-offset_bottom = 1291.0
+offset_bottom = 1301.0
 text = "0
 "
 label_settings = SubResource("LabelSettings_57hxi")
