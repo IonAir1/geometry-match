@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	$particles.position = get_viewport().get_mouse_position()
+	$particles.position = $balls.touch_position
 	$score.text = str(Global.score)
 	create_tween().tween_property($health, "value", Global.health, 0.2).set_trans(Tween.TRANS_SINE)
 	if Global.health <= 0 and not lost:

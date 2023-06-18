@@ -6,6 +6,8 @@ var min_time: int = 0.5
 var max_time: int = 1
 var ball: PackedScene = preload("res://scenes/ball.tscn")
 var pressing: bool = false
+var touch_position: Vector2
+var touch_index: int
 
 
 func _ready():
@@ -36,13 +38,17 @@ func _ready():
 
 
 func _process(delta):
-	$particles.position = get_viewport().get_mouse_position()
+	$particles.position = touch_position
 	$scores/score.text = "Score: " + str(Global.score)
 	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
 
 
 func _input(ev):
+	if not ev is InputEventMouse:
+		if ev.index == touch_index:
+			touch_position = ev.position
 	if ev is InputEventScreenTouch:
+		touch_index = ev.index
 		if ev.is_pressed() and not pressing:
 			pressing = true
 			$particles.emitting = true

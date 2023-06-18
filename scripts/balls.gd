@@ -13,6 +13,8 @@ var heal_count: int
 var freeze_min: int = 18
 var freeze_max: int = 30
 var freeze_count: int
+var touch_position: Vector2
+var touch_index: int
 
 
 func _ready():
@@ -24,16 +26,21 @@ func _ready():
 
 func _physics_process(delta):
 	if status == "dragging" and is_instance_valid(selected_ball):
-		selected_ball.global_transform.origin = (get_viewport().get_mouse_position() - offset).clamp(Vector2(0,0),Vector2(720,1280))
+		selected_ball.global_transform.origin = (touch_position - offset).clamp(Vector2(0,0),Vector2(720,1280))
 
 
 func _input(ev):
+	if not ev is InputEventMouse:
+		if ev.index == touch_index:
+			touch_position = ev.position
 	if ev is InputEventScreenTouch:
 		if status != "dragging" and ev.pressed:
+			touch_position = ev.position
 			selected_ball = find_nearest()
 			if selected_ball == null:
 				return
 			selected_ball.freeze = true
+			touch_index = ev.index
 			status = "clicked"
 			offset = ev.position - selected_ball.position
 			get_node("../particles").emitting = true
@@ -122,7 +129,7 @@ func spawn():
 
 
 func find_nearest():
-	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+	var mouse_pos: Vector2 = touch_position
 	var objects: Array = []
 	for child in get_children():
 		objects.append(child)
