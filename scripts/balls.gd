@@ -5,13 +5,13 @@ var new_pos: Vector2
 var offset: Vector2
 var status: String
 var selected_ball: Object
-var time_min: int = 0.5
-var time_max: int = 1
-var heal_min: int = 10
-var heal_max: int = 15
+var time_min: float = 0.3
+var time_max: float = 0.8
+var heal_min: int = 12
+var heal_max: int = 20
 var heal_count: int
-var freeze_min: int = 18
-var freeze_max: int = 30
+var freeze_min: int = 28
+var freeze_max: int = 50
 var freeze_count: int
 var touch_position: Vector2
 var touch_index: int
@@ -70,7 +70,7 @@ func freeze():
 	get_parent().get_node("freeze").modulate.a = 0.25
 	for ball in get_children():
 		ball.freeze = true
-	await get_tree().create_timer(7.75).timeout
+	await get_tree().create_timer(4.75).timeout
 	Audio.sound("unfreeze")
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
