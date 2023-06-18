@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=36 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 [ext_resource type="FontFile" uid="uid://bwud11n6mcxdd" path="res://textures/Roboto-Regular.ttf" id="2_2u1iy"]
@@ -86,10 +86,14 @@ outline_color = Color(0.19, 0.19, 0.19, 1)
 font = ExtResource("2_wnsee")
 font_size = 64
 
+[sub_resource type="LabelSettings" id="LabelSettings_5tfcv"]
+font = ExtResource("2_wnsee")
+font_size = 32
+
 [sub_resource type="LabelSettings" id="LabelSettings_phlcm"]
 line_spacing = 2.0
 font = ExtResource("2_wnsee")
-font_size = 34
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_iu5ur"]
 font = ExtResource("2_2u1iy")
@@ -539,15 +543,32 @@ text = "Score: 9999"
 label_settings = SubResource("LabelSettings_l2yxk")
 horizontal_alignment = 1
 
+[node name="highscore" type="Label" parent="scores"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -42.0
+offset_right = 232.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Best Score: 9999"
+label_settings = SubResource("LabelSettings_5tfcv")
+horizontal_alignment = 1
+
 [node name="leaderboard" type="Label" parent="scores"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -189.5
-offset_top = 30.0
+offset_top = 54.0
 offset_right = 189.5
-offset_bottom = 100.0
+offset_bottom = 124.0
 grow_horizontal = 2
 text = "Leaderboards"
 label_settings = SubResource("LabelSettings_phlcm")
@@ -565,8 +586,8 @@ texture_pressed = ExtResource("3_vjie2")
 
 [node name="Control" type="Control" parent="scores"]
 anchors_preset = 0
-offset_top = 800.0
-offset_bottom = 800.0
+offset_top = 860.0
+offset_bottom = 860.0
 
 [node name="Label" type="Label" parent="scores/Control"]
 layout_mode = 1

@@ -40,6 +40,7 @@ func _ready():
 func _process(delta):
 	$particles.position = touch_position
 	$scores/score.text = "Score: " + str(Global.score)
+	$scores/highscore.text = "Best Score: " + str(Global.high_score)
 	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
 
 
