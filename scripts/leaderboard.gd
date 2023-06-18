@@ -40,10 +40,12 @@ func _authentication_request():
 	# Check if a player session has been saved
 	var player_session_exists = false
 	var file = FileAccess.open("user://LootLocker.data", FileAccess.READ)
-	var player_identifier = file.get_as_text()
-	file.close()
-	if(player_identifier.length() > 1):
-		player_session_exists = true
+	var player_identifier
+	if file != null:
+		player_identifier = file.get_as_text()
+		file.close()
+		if(player_identifier.length() > 1):
+			player_session_exists = true
 		
 	## Convert data to json string:
 	var data = { "game_key": game_API_key, "game_version": "0.0.0.1", "development_mode": true }
