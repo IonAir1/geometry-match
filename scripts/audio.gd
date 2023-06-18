@@ -2,7 +2,7 @@ extends Node
 
 var sound_on: bool = true
 var music_on:bool = true
-var override_sound: bool = false
+var override_sound: bool
 var music_time: float
 
 func sound(sound):

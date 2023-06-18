@@ -2,9 +2,9 @@ extends RigidBody2D
 
 
 var shape: String
-var healing: bool = false
-var freezing: bool = false
-var main_menu: bool = false
+var healing: bool
+var freezing: bool
+var main_menu: bool
 
 
 func _ready():

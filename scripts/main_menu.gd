@@ -1,11 +1,11 @@
 extends Node2D
 
 
-var started: bool = false
+var started: bool
 var min_time: int = 0.5
 var max_time: int = 1
 var ball: PackedScene = preload("res://scenes/ball.tscn")
-var pressing: bool = false
+var pressing: bool
 var touch_position: Vector2
 var touch_index: int
 

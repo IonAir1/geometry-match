@@ -130,7 +130,7 @@ func spawn():
 
 func find_nearest():
 	var mouse_pos: Vector2 = touch_position
-	var objects: Array = []
+	var objects: Array
 	for child in get_children():
 		objects.append(child)
 	if objects == []:

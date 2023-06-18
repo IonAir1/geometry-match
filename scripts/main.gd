@@ -1,7 +1,7 @@
 extends Node2D
 
-var healing: bool = false
-var lost: bool = false
+var healing: bool
+var lost: bool
 
 
 func _ready():

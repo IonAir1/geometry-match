@@ -1,9 +1,9 @@
 extends Node
 
-var score: int = 0
+var score: int
 var health: int
-var high_score: int = 0
-var freeze: bool = false
+var high_score: int
+var freeze: bool
 
 
 func _ready():
