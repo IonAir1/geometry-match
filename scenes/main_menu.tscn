@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://domeqneveoqsk"]
+[gd_scene load_steps=35 format=3 uid="uid://domeqneveoqsk"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ynysc"]
 [ext_resource type="FontFile" uid="uid://bwud11n6mcxdd" path="res://textures/Roboto-Regular.ttf" id="2_2u1iy"]
 [ext_resource type="Texture2D" uid="uid://dks6con4sejdk" path="res://textures/sound.png" id="2_oewma"]
+[ext_resource type="FontFile" uid="uid://25yayaksomxl" path="res://textures/RobotoMono-VariableFont_wght.ttf" id="2_wnsee"]
 [ext_resource type="Texture2D" uid="uid://133tr05mhpv7" path="res://textures/music.png" id="3_vjie2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2egl"]
@@ -61,6 +62,7 @@ bg_color = Color(0.980392, 0.372549, 0.247059, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpjir"]
 line_spacing = 1.0
+font = ExtResource("2_wnsee")
 font_size = 64
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgf28"]
@@ -81,16 +83,18 @@ outline_size = 10
 outline_color = Color(0.19, 0.19, 0.19, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l2yxk"]
-font = ExtResource("2_2u1iy")
+font = ExtResource("2_wnsee")
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_phlcm"]
 line_spacing = 2.0
-font = ExtResource("2_2u1iy")
+font = ExtResource("2_wnsee")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_iu5ur"]
+font = ExtResource("2_2u1iy")
 font_size = 72
+outline_size = 4
 
 [sub_resource type="BoxMesh" id="BoxMesh_y8do0"]
 
@@ -174,9 +178,9 @@ value = 10.0
 show_percentage = false
 
 [node name="score2" type="Label" parent="walls"]
-offset_top = 1202.0
+offset_top = 1205.0
 offset_right = 148.0
-offset_bottom = 1291.0
+offset_bottom = 1294.0
 text = "0"
 label_settings = SubResource("LabelSettings_vpjir")
 
@@ -579,6 +583,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
 label_settings = SubResource("LabelSettings_iu5ur")
+horizontal_alignment = 1
 
 [node name="play" type="Area2D" parent="."]
 
