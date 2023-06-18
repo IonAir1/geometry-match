@@ -5,6 +5,7 @@ var started: bool = false
 var min_time: int = 0.5
 var max_time: int = 1
 var ball: PackedScene = preload("res://scenes/ball.tscn")
+var pressing: bool = false
 
 
 func _ready():
@@ -26,13 +27,20 @@ func _ready():
 
 
 func _process(delta):
+	$particles.position = get_viewport().get_mouse_position()
 	$scores/score.text = "Score: " + str(Global.score)
 	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
 
 
-func _input(event):
-	if event.is_pressed():
-		Audio.sound("select")
+func _input(ev):
+	if ev is InputEventScreenTouch:
+		if ev.is_pressed() and not pressing:
+			pressing = true
+			$particles.emitting = true
+			Audio.sound("select")
+		else:
+			pressing = false
+			$particles.emitting = false
 
 
 func _on_play_input_event(viewport, event, shape_idx):

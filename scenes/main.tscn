@@ -313,6 +313,18 @@ scale = Vector2(5, 40)
 mesh = SubResource("BoxMesh_720mp")
 texture = SubResource("GradientTexture1D_vihui")
 
+[node name="particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 25
+explosiveness = 0.24
+randomness = 0.53
+lifetime_randomness = 0.24
+direction = Vector2(1.059, 1)
+spread = 180.0
+initial_velocity_min = 30.31
+initial_velocity_max = 353.54
+scale_amount_max = 5.0
+
 [node name="balls" type="Node2D" parent="."]
 script = ExtResource("1_ie5fb")
 metadata/_edit_lock_ = true

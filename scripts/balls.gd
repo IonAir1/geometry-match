@@ -36,9 +36,11 @@ func _input(ev):
 			selected_ball.freeze = true
 			status = "clicked"
 			offset = ev.position - selected_ball.position
+			get_node("../particles").emitting = true
 			Audio.sound("select")
 		elif not ev.pressed:
 			status = "released"
+			get_node("../particles").emitting = false
 			Audio.sound("drop")
 			if not Global.freeze:
 				if selected_ball == null:
