@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wx63tgo4rx0d"
+path="res://.godot/imported/A bit of hope.ogg-5e222412c9736f4af2d121e063a6b3c7.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/A bit of hope.ogg"
+dest_files=["res://.godot/imported/A bit of hope.ogg-5e222412c9736f4af2d121e063a6b3c7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

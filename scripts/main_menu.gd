@@ -13,7 +13,16 @@ func _ready():
 	if Global.score > Global.high_score:
 		Global.high_score = Global.score
 		Leaderboard._upload_score(Global.score)
-
+	
+	if Audio.music_on:
+		$scores/music.modulate = Color(1, 1, 1, 1)
+	else:
+		$scores/music.modulate = Color(0.2, 0.2, 0.2, 1)
+	if Audio.sound_on:
+		$scores/sound.modulate = Color(1, 1, 1, 1)
+	else:
+		$scores/sound.modulate = Color(0.2, 0.2, 0.2, 1)
+	
 	Audio.override_sound = false
 	Global.freeze = false
 	$scores.modulate.a = 1
@@ -71,10 +80,6 @@ func spawn():
 		spawn()
 
 
-func _on_music_toggled(button_pressed):
-	pass # Replace with function body.
-
-
 func _on_sound_pressed():
 	if Audio.sound_on:
 		Audio.sound_on = false
@@ -85,9 +90,8 @@ func _on_sound_pressed():
 
 
 func _on_music_pressed():
+	Audio.update_music_volume()
 	if Audio.music_on:
-		Audio.music_on = false
-		$scores/music.modulate = Color(0.2, 0.2, 0.2, 1)
-	else:
-		Audio.music_on = true
 		$scores/music.modulate = Color(1, 1, 1, 1)
+	else:
+		$scores/music.modulate = Color(0.2, 0.2, 0.2, 1)

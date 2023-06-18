@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbssc4inebrht"]
+[gd_scene load_steps=10 format=3 uid="uid://dbssc4inebrht"]
 
 [ext_resource type="Script" path="res://scripts/audio.gd" id="1_yoy6b"]
 [ext_resource type="AudioStream" uid="uid://chmeot7oprfrw" path="res://audio/select.wav" id="2_x35km"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b438r5dutcwsm" path="res://audio/hurt.wav" id="7_kda3u"]
 [ext_resource type="AudioStream" uid="uid://qss0liyhqu6" path="res://audio/freeze.wav" id="8_nrt7m"]
 [ext_resource type="AudioStream" uid="uid://cj2nsn2ld53mv" path="res://audio/unfreeze.wav" id="9_7w0et"]
+[ext_resource type="AudioStream" uid="uid://wx63tgo4rx0d" path="res://audio/A bit of hope.ogg" id="9_471mq"]
 
 [node name="Audio" type="Node"]
 script = ExtResource("1_yoy6b")
@@ -33,3 +34,9 @@ stream = ExtResource("8_nrt7m")
 
 [node name="unfreeze" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_7w0et")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_471mq")
+volume_db = -5.0
+
+[connection signal="finished" from="music" to="." method="_on_music_finished"]
