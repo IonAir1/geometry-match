@@ -19,6 +19,8 @@ func _process(delta):
 		lost = true
 		$fade.visible = true
 		$fade.modulate.a = 0
+		Audio.sound("gameover")
+		Audio.override_sound = true
 		await create_tween().parallel().tween_property($fade, "modulate:a", 1, 0.5).set_trans(Tween.TRANS_SINE).finished
 		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
@@ -29,12 +31,14 @@ func _on_square_body_entered(body):
 		Global.score += 1
 		if body.healing:
 			Global.health = 10
+			Audio.sound("heal")
 		if body.freezing:
 			freeze()
-		if body.healing:
-			heal()
 	else:
 		Global.health -= 1
+		if not healing:
+			heal()
+		Audio.sound("hurt")
 	body.queue_free()
 
 
@@ -45,8 +49,12 @@ func _on_circle_body_entered(body):
 			freeze()
 		if body.healing:
 			Global.health = 10
+			Audio.sound("heal")
 	else:
 		Global.health -= 1
+		if not healing:
+			heal()
+		Audio.sound("hurt")
 	body.queue_free()
 
 
@@ -57,8 +65,12 @@ func _on_triangle_body_entered(body):
 			freeze()
 		if body.healing:
 			Global.health = 10
+			Audio.sound("heal")
 	else:
 		Global.health -= 1
+		if not healing:
+			heal()
+		Audio.sound("hurt")
 	body.queue_free()
 
 
@@ -76,4 +88,5 @@ func heal():
 func freeze():
 	if not Global.freeze:
 		Global.freeze = true
+		Audio.sound("freeze")
 		$balls.freeze()

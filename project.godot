@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Audio="*res://scenes/audio.tscn"
 Global="*res://scripts/global.gd"
 Leaderboard="*res://scripts/leaderboard.gd"
 

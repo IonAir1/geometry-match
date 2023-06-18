@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbssc4inebrht"]
+
+[ext_resource type="Script" path="res://scripts/audio.gd" id="1_yoy6b"]
+[ext_resource type="AudioStream" uid="uid://chmeot7oprfrw" path="res://audio/select.wav" id="2_x35km"]
+[ext_resource type="AudioStream" uid="uid://ta8ixyor8r4u" path="res://audio/drop.wav" id="3_214v0"]
+[ext_resource type="AudioStream" uid="uid://cxi8jd14qfppr" path="res://audio/gameover.wav" id="5_er0wr"]
+[ext_resource type="AudioStream" uid="uid://evsp1s6axxy7" path="res://audio/heal.wav" id="6_78glf"]
+[ext_resource type="AudioStream" uid="uid://b438r5dutcwsm" path="res://audio/hurt.wav" id="7_kda3u"]
+[ext_resource type="AudioStream" uid="uid://qss0liyhqu6" path="res://audio/freeze.wav" id="8_nrt7m"]
+[ext_resource type="AudioStream" uid="uid://cj2nsn2ld53mv" path="res://audio/unfreeze.wav" id="9_7w0et"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_yoy6b")
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x35km")
+
+[node name="drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_214v0")
+volume_db = 6.559
+
+[node name="gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_er0wr")
+
+[node name="heal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_78glf")
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kda3u")
+
+[node name="freeze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nrt7m")
+
+[node name="unfreeze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7w0et")

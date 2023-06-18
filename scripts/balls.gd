@@ -10,7 +10,7 @@ var time_max: int = 1
 var heal_min: int = 10
 var heal_max: int = 15
 var heal_count: int
-var freeze_min: int = 15
+var freeze_min: int = 18
 var freeze_max: int = 30
 var freeze_count: int
 
@@ -36,8 +36,10 @@ func _input(ev):
 			selected_ball.freeze = true
 			status = "clicked"
 			offset = ev.position - selected_ball.position
+			Audio.sound("select")
 		elif not ev.pressed:
 			status = "released"
+			Audio.sound("drop")
 			if not Global.freeze:
 				selected_ball.freeze = false
 	if status == "clicked" and ev is InputEventScreenDrag:
@@ -54,6 +56,7 @@ func freeze():
 	for ball in get_children():
 		ball.freeze = true
 	await get_tree().create_timer(7.75).timeout
+	Audio.sound("unfreeze")
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished

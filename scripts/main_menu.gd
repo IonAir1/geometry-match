@@ -13,6 +13,7 @@ func _ready():
 		Global.high_score = Global.score
 		Leaderboard._upload_score(Global.score)
 
+	Audio.override_sound = false
 	Global.freeze = false
 	$scores.modulate.a = 1
 	$walls.position.y = 380
@@ -30,13 +31,15 @@ func _process(delta):
 
 
 func _input(event):
-	if event.is_pressed() and not started:
-		started = true
-		await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
-		while $balls.get_child_count() > 0:
-			await get_tree().create_timer(0.1).timeout
-		await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	if event.is_pressed():
+		Audio.sound("select")
+		if not started:
+			started = true
+			await create_tween().parallel().tween_property($scores, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_SINE).finished
+			while $balls.get_child_count() > 0:
+				await get_tree().create_timer(0.1).timeout
+			await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
 func spawn():
