@@ -334,6 +334,7 @@ direction = Vector2(1.059, 1)
 spread = 180.0
 initial_velocity_min = 30.31
 initial_velocity_max = 353.54
+angle_max = 720.0
 scale_amount_max = 5.0
 
 [node name="balls" type="Node2D" parent="."]
@@ -386,6 +387,7 @@ text = "0
 label_settings = SubResource("LabelSettings_57hxi")
 
 [node name="fade" type="MeshInstance2D" parent="."]
+visible = false
 position = Vector2(375, -1957.5)
 scale = Vector2(14342, 6595)
 mesh = SubResource("BoxMesh_q1356")
