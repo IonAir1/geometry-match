@@ -5,13 +5,13 @@ var new_pos: Vector2
 var offset: Vector2
 var status: String
 var selected_ball: Object
-var time_min: float = 0.3
-var time_max: float = 0.8
-var heal_min: int = 12
-var heal_max: int = 20
+var time_min: float = 0.2
+var time_max: float = 0.5
+var heal_min: int = 30
+var heal_max: int = 60
 var heal_count: int
-var freeze_min: int = 28
-var freeze_max: int = 50
+var freeze_min: int = 40
+var freeze_max: int = 80
 var freeze_count: int
 var touch_position: Vector2
 var touch_index: int
@@ -30,7 +30,6 @@ func _physics_process(delta):
 			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))-Vector2(360,1280),
 			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))+Vector2(360,0)
 			)
-		print(selected_ball.global_transform.origin)
 
 
 func _input(ev):
@@ -70,7 +69,7 @@ func freeze():
 	get_parent().get_node("freeze").modulate.a = 0.25
 	for ball in get_children():
 		ball.freeze = true
-	await get_tree().create_timer(4.75).timeout
+	await get_tree().create_timer(3.25).timeout
 	Audio.sound("unfreeze")
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0, 0.25).set_trans(Tween.TRANS_SINE).finished
 	await create_tween().chain().tween_property(get_parent().get_node("freeze"), "modulate:a", 0.25, 0.25).set_trans(Tween.TRANS_SINE).finished
