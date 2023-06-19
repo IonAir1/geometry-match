@@ -5,15 +5,9 @@ var started: bool
 var min_time: float = 0.3
 var max_time: float = 0.8
 var ball: PackedScene = preload("res://scenes/ball.tscn")
-var pressing: bool
-var touch_position: Vector2
-var touch_index: int
 
 
 func _ready():
-	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
-	$particles.global_position = touch_position
-
 	if Global.score > Global.high_score:
 		Global.high_score = Global.score
 		Leaderboard._upload_score(Global.score)
@@ -40,27 +34,9 @@ func _ready():
 
 
 func _process(delta):
-	position = Vector2((get_viewport().get_visible_rect().size/Vector2(2,1))-Vector2(360,1280))
-	$particles.global_position = touch_position
 	$scores/score.text = "Score: " + str(Global.score)
 	$scores/highscore.text = "Best Score: " + str(Global.high_score)
 	$scores/leaderboard.text = "Leaderboard\n" + str(Leaderboard.leaderboard_formatted)
-
-
-func _input(ev):
-	if "index" in ev:
-		if ev.index == touch_index:
-			touch_position = ev.position
-	if ev is InputEventScreenTouch:
-		touch_position = ev.position
-		touch_index = ev.index
-		if ev.is_pressed() and not pressing:
-			pressing = true
-			$particles.emitting = true
-			Audio.sound("select")
-		else:
-			pressing = false
-			$particles.emitting = false
 
 
 func _on_play_input_event(viewport, event, shape_idx):
@@ -70,7 +46,8 @@ func _on_play_input_event(viewport, event, shape_idx):
 		while $balls.get_child_count() > 0:
 			await get_tree().create_timer(0.1).timeout
 		await create_tween().parallel().tween_property($walls, "position:y", 0, 2).set_trans(Tween.TRANS_QUART).finished
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		get_parent().add_child(preload("res://scenes/game.tscn").instantiate())
+		queue_free()
 
 
 func spawn():

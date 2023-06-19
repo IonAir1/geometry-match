@@ -26,31 +26,26 @@ func _ready():
 
 func _physics_process(delta):
 	if status == "dragging" and is_instance_valid(selected_ball):
-		selected_ball.global_transform.origin = (touch_position - offset).clamp(
-			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))-Vector2(360,1280),
-			(Vector2(get_viewport().get_visible_rect().size)/Vector2(2,1))+Vector2(360,0)
-			)
+		selected_ball.global_transform.origin = (touch_position - offset).clamp(Vector2(0,0),Vector2(720,1280))
 
 
 func _input(ev):
 	if "index" in ev:
 		if ev.index == touch_index:
-			touch_position = ev.position
+			touch_position = ev.position + get_node("../../Camera2D").position
 	if ev is InputEventScreenTouch:
 		if status != "dragging" and ev.pressed:
-			touch_position = ev.position
+			touch_position = ev.position + get_node("../../Camera2D").position
 			selected_ball = find_nearest()
 			if selected_ball == null:
 				return
 			selected_ball.freeze = true
 			touch_index = ev.index
 			status = "clicked"
-			offset = ev.position - selected_ball.global_position
-			get_node("../particles").emitting = true
+			offset = touch_position - selected_ball.position
 			Audio.sound("select")
 		elif not ev.pressed:
 			status = "released"
-			get_node("../particles").emitting = false
 			Audio.sound("drop")
 			if not Global.freeze:
 				if selected_ball == null:

@@ -119,6 +119,7 @@ colors = PackedColorArray(0.19, 0.19, 0.19, 1)
 gradient = SubResource("Gradient_2ubet")
 
 [node name="main menu" type="Node2D"]
+z_index = 1
 script = ExtResource("1_ynysc")
 
 [node name="walls" type="StaticBody2D" parent="."]
@@ -512,18 +513,6 @@ M A T C H"
 label_settings = SubResource("LabelSettings_fxx76")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="particles" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 25
-explosiveness = 0.24
-randomness = 0.53
-lifetime_randomness = 0.24
-direction = Vector2(1.059, 1)
-spread = 180.0
-initial_velocity_min = 30.31
-initial_velocity_max = 353.54
-scale_amount_max = 5.0
 
 [node name="balls" type="Node2D" parent="."]
 

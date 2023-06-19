@@ -33,8 +33,16 @@ func _ready():
 		$square_collision.queue_free()
 	rotation_degrees = randi()%360
 	angular_velocity = randf_range(-7, 7)
+	get_tree().root.connect("size_changed", self._on_viewport_size_changed)
+
 
 func _process(delta):
 	if main_menu:
 		if position.y > 1400:
 			queue_free()
+
+
+func _on_viewport_size_changed():
+	pass
+#	global_transform.origin = get_parent().get_parent().position + position
+	
